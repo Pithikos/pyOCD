@@ -16,7 +16,7 @@ def get_hids():
 def deactivate_driver(dev):
     config = dev.get_active_configuration()
     for interface in config:
-        if interface.bInterfaceClass == 0x03:
+        if interface.bInterfaceClass == usb.CLASS_HID:
              if dev.is_kernel_driver_active(interface.bInterfaceNumber):
                  dev.detach_kernel_driver(interface.bInterfaceNumber)
                  break
